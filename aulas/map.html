@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodo Map</title>
+</head>
+<body>
+    <h1>Meus cursos de programação</h1>
+    <ul>
+        <li>HTML 5</li>
+        <li>CSS 3</li>
+        <li>Java Script</li>
+        <li>PHP</li>
+        <li>Python</li>
+    </ul>
+    <script>
+        // const cursos = [...document.getElementsByTagName("li")]; // vira lista
+        
+        // console.log(cursos);
+        
+        // cursos.map((item, indice) => {
+        //     console.log(`item: ${item.textContent} e seu indice: ${indice}`);
+        // });
+
+        const elemento = document.getElementsByTagName("li");
+
+        const valores = Array.prototype.map.call(elemento, ({innerHTML}) => innerHTML); // Pesquisar sobre
+
+        console.log(valores);
+        </script>
+</body>
+</html>
