@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Controle de despesas</title>
+</head>
+<body>
+    <main>
+        <section id="titulo">
+            <h1>Controle de despesas</h1>
+            <p>Insira uma movimentação financeira de crédito ou débito!</p>
+        </section>
+        <section id="controles">
+            <input type="text" name="desc" id="idesc">
+            <input type="number" name="valor" id="ivalor" min="0">
+            <select name="tipo" id="itipo">
+                <option value="entrada">Entrada</option>
+                <option value="saida">Saida</option>
+            </select>
+            <input type="button" value="Adicionar" id="botao">
+        </section>
+        <section id="corpo">
+            <div id="totalizadores">
+                <p>Entradas <output id="total-entradas"></output></p>
+                <p>Saidas <output id="total-saidas"></output></p>
+                <p>Saldo <output id="saldo"></output></p>
+            </div>
+            <table>
+                <colgroup>
+                    <col width="50%">
+                    <col width="30">
+                    <col width="20%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>Descricao</th>
+                        <th>Valor</th>
+                        <th>Tipo de movimento</th>
+                    </tr>
+                </thead>
+                <tbody id="tabela"></tbody>
+            </table>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

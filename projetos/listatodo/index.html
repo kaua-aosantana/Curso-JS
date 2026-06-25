@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <title>To-do List</title>
+</head>
+<body>
+    <main>
+        <section id="topo">
+            <h1>Adicione uma nova tarefa!</h1>
+            <select name="filtro" id="ifiltro">
+                <option value="todas">Todas</option>
+                <option value="pendentes">Pendentes</option>
+                <option value="concluidas">Concluidas</option>
+            </select>
+        </section>
+        <section id="controles">
+            <input type="text" name="tarefa" id="itarefa">
+            <input type="button" value="Adicionar" id="botao">
+        </section>
+        <section id="corpo">
+            <ul id="lista"></ul>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

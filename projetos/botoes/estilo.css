@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main{
+    height: 500px;
+    width: 800px;
+    background-color: rgb(173, 216, 230);
+    border-radius: 0.5em;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+#caixa{
+    width: 50%;
+    height: 50%;
+    background-color: white;
+}
+fieldset{
+    width: 50%;
+    height: 20%;
+    border: 1px solid blue;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0.5em;
+}
+input[type="button"]{
+    width: 8em;
+}
