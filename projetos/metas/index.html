@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Cofrinho de Metas</title>
+</head>
+<body>
+    <main>
+        <section id="titulo">
+            <div>
+                <h1>Meu cofrinho de metas</h1>
+                <p>Insira uma meta de valor e acompanhe o progresso dela</p>
+            </div>
+            <div>
+                <select name="filtro" id="ifiltro">
+                    <option value="todas">Todas</option>
+                    <option value="concluidas">Concluídas</option>
+                    <option value="abertas">Abertas</option>
+                </select>
+                <input type="button" value="Adicionar meta" id="botao">
+            </div>
+        </section>
+        <section id="corpo">
+            <div id="totalizadores">
+                <p>Total de metas <output id="total-metas"></output></p>
+                <p>Metas concluídas <output id="total-concluidas"></output></p>
+                <p>Metas em aberto <output id="total-abertas"></output></p>
+            </div>
+            <table>
+                <colgroup>
+                    <col width="5%" style="background-color: lightcoral;">
+                    <col width="50  %">
+                    <col width="20%">
+                    <col width="20%">
+                    <col width="5%">
+                </colgroup>
+                <thead>
+                    <tr><th>Id</th><th>Descrição</th><th>Objetivo</th><th>Progresso</th><th>⟳</th></tr>
+                </thead>
+                <tbody id="tabela"></tbody>
+            </table>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

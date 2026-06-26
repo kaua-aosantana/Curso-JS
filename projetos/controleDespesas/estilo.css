@@ -71,3 +71,9 @@ table{
     height: 100%;
     text-align: left;
 }
+td.saida{
+    color: red;
+}
+td.entrada{
+    color: green;
+}
