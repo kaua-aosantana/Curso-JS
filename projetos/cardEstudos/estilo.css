@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#interface{
+    width: 900px;
+    height: 500px;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 15%;
+}
+#btn-adicionar{
+    width: 20%;
+    border: 1px solid lightgray;
+    border-radius: 1em;
+    background-color: whitesmoke;
+    padding: 1em;
+    cursor: pointer;
+}
+main{
+    display: grid;
+    grid-template-columns: 64% 35%;
+    gap: 1%;
+    height: 85%;
+}
+section{
+    width: 100%;
+    height: 100%;
+    border: 1px solid lightgray;
+    border-radius: 1em;
+    padding: 0.5em;
+}
+#secaoRevisao{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+#cartao{
+    width: 90%;
+    height: 70%;
+    background-color: #b0e0e6;
+    border-radius: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#cartao p{
+    font-size: 1.5em;
+    color: darkblue;
+    overflow-wrap: break-word;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#controles{
+    width: 90%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+}
+#secaoPlacar{
+    display: grid;
+    grid-template-rows: 80% 20%;
+}
+.btn{
+    border: 2px solid darkgray;
+    background-color: whitesmoke;
+    border-radius: 1em;
+    padding: 1em;
+    width: 20%;
+}
+.totalizadores{
+    width: 100%;
+    height: 25%;
+    margin-bottom: 1em;
+    border: 1px solid darkgray;
+    border-radius: 1em;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    text-align: center;
+    overflow: hidden;
+}
+.totalizadores > div{
+    padding: 0.5em;
+}
+.material-symbols-outlined{
+    background-color: palevioletred;
+    padding: 1em;
+}
+#config{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+#btn-reiniciar{
+    height: 40%;
+    cursor: pointer;
+}
+
+#cartao.descoberto{
+    background-color: #5f729d;
+}
+#cartao.descoberto p{
+    color: lightblue;
+}
+#btn-novoBaralho{
+    height: 40%;
+}
+output{
+    font-size: 2em;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    color: rgb(163, 59, 68);
+}

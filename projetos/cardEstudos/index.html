@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <title>Flashcards</title>
+</head>
+<body>
+    <div id="interface">
+        <header>
+            <div>
+                <h1>Revise os cartões corretamente!</h1>
+                <p>Adicione um novo cartão pergunta/resposta e tente acerta-lo</p>
+            </div>
+            <input type="button" value="Novo cartão" id="btn-adicionar">
+        </header>
+        <main>
+            <section id="secaoRevisao">
+                <div id="cartao">
+                    <p id="texto-cartao"></p>
+                </div>
+                <div id="controles">
+                    <input type="button" value="Não lembrei" id="btnErro" class="btn">
+                    <input type="button" value="Acertei" id="btnAcerto" class="btn">
+                </div>
+            </section>
+            <section id="secaoPlacar">
+                <div>
+                    <div class="totalizadores">
+                        <div>
+                            <p>Total de cartões</p>
+                            <output id="total-cartoes">0</output>
+                        </div>
+                        <i class="material-symbols-outlined">neurology</i>
+                    </div>
+                    <div class="totalizadores">
+                        <div>
+                            <p>Total de Aprendidos</p>
+                            <output id="total-aprendidos">0</output>
+                        </div>
+                        <i class="material-symbols-outlined">assignment_turned_in</i>
+                    </div>
+                    <div class="totalizadores">
+                        <div>
+                            <p>Total em revisão</p>
+                            <output id="total-revisao">0</output>
+                        </div>
+                        <i class="material-symbols-outlined">book</i>
+                    </div>
+                </div>
+                <div id="config">
+                    <input type="button" value="Reiniciar os cartões" id="btn-reiniciar">
+                    <input type="button" value="Gerar outro baralho" id="btn-novoBaralho">
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
