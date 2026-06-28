@@ -45,7 +45,6 @@ function carregarMemoria(){
 function apagarMemoria(){
     if(prompt("Digite REINICIAR para excluir os cartões salvos na memoria") === "REINICIAR"){
         cartoes = []
-        iterator = localizarCartao()
         return localStorage.removeItem("flashcards")
     }
 }
@@ -65,10 +64,18 @@ let iterator = localizarCartao() // 1º chamada
 function avancarIterator(){
     let proximo = iterator.next()
 
-    if (proximo.done === true) return {frente: "Revisão Concluída", verso: "Revisão Concluída", acerto: false} // gambiarra vgnd
+    if (proximo.done === true) return null
     else return proximo.value
 }
+function acabarFila(){
+    textoCartao.text = "Revisão concluída!"
 
+    // Travar os botoes
+    cartaoHTML.style.pointerEvents = "none"
+    for(const b of botoesVerificar){
+        b.style.pointerEvents = "none"
+    }
+}
 function atualizarPlacar(){
     totalCartoes.textContent = [...cartoes].length
     totalAprendidos.textContent = cartoes.filter(c => c.acerto === true).length
@@ -93,6 +100,9 @@ carregarMemoria() // Pegar os dados da memoria quando atualiza a pagina e imprim
 
 botaoReiniciar.addEventListener("click", () => {
     apagarMemoria()
+    carregarMemoria()
+    atualizarPlacar()
+    cartaoAtual = null
 })
 
 botaoAdicionar.addEventListener("click", () =>{
@@ -110,7 +120,10 @@ botaoAdicionar.addEventListener("click", () =>{
 
 cartaoHTML.addEventListener("click", () => {
 
-    if (cartaoAtual.frente === "Revisão Concluída"){
+    if(cartaoAtual === undefined || cartaoAtual === null){
+        return
+    }
+    if(cartaoAtual.frente === "Revisão Concluída"){
         return
     }
     adicionarCartao("resposta")
@@ -124,17 +137,19 @@ cartaoHTML.addEventListener("click", () => {
 
 for (const b of botoesVerificar){
     b.addEventListener("click", () => {
+        if (cartaoAtual === null){
+            return
+        }
         if(b.id === "btnAcerto"){
             cartaoAtual.acerto = true
         }
         else{
             cartaoAtual.acerto = false
         }
-        console.log(cartoes)
         atualizarMemoria()
 
         cartaoHTML.style.pointerEvents = "auto"
-        cartaoHTML.classList.toggle("descoberto")
+        cartaoHTML.classList.remove("descoberto")
 
         cartaoAtual = avancarIterator()
         adicionarCartao("pergunta")
@@ -143,14 +158,15 @@ for (const b of botoesVerificar){
 }
 
 botaoNovoBaralho.addEventListener("click", () => {
+    cartaoHTML.classList.remove("descoberto")
     iterator = localizarCartao()
     
-    for(c of cartoes){
+    for(const c of cartoes){
         c.acerto = false
     }
 
     cartaoAtual = avancarIterator()
-    
+
     adicionarCartao("pergunta")
     atualizarPlacar()
 })
