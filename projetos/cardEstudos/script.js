@@ -38,8 +38,12 @@ function carregarMemoria(){
 
     iterator = localizarCartao()
     cartaoAtual = avancarIterator()
-    adicionarCartao("pergunta")
     atualizarPlacar()
+    if(cartaoAtual === null){
+        acabarFila()
+        return
+    }
+    adicionarCartao("pergunta")
 }
 
 function apagarMemoria(){
@@ -54,9 +58,6 @@ function* localizarCartao(){
         if(cartao.acerto === false){
             yield cartao
         }
-        else{
-            continue
-        }
     }
 }
 let iterator = localizarCartao() // 1º chamada
@@ -68,13 +69,14 @@ function avancarIterator(){
     else return proximo.value
 }
 function acabarFila(){
-    textoCartao.text = "Revisão concluída!"
+    textoCartao.textContent = "Revisão concluída!"
 
     // Travar os botoes
     cartaoHTML.style.pointerEvents = "none"
     for(const b of botoesVerificar){
         b.style.pointerEvents = "none"
     }
+
 }
 function atualizarPlacar(){
     totalCartoes.textContent = [...cartoes].length
@@ -137,9 +139,6 @@ cartaoHTML.addEventListener("click", () => {
 
 for (const b of botoesVerificar){
     b.addEventListener("click", () => {
-        if (cartaoAtual === null){
-            return
-        }
         if(b.id === "btnAcerto"){
             cartaoAtual.acerto = true
         }
@@ -152,8 +151,13 @@ for (const b of botoesVerificar){
         cartaoHTML.classList.remove("descoberto")
 
         cartaoAtual = avancarIterator()
-        adicionarCartao("pergunta")
         atualizarPlacar()
+        console.log(cartaoAtual)
+        if (cartaoAtual === null){
+            acabarFila()
+            return
+        }
+        adicionarCartao("pergunta")
     })
 }
 
@@ -165,6 +169,10 @@ botaoNovoBaralho.addEventListener("click", () => {
         c.acerto = false
     }
 
+    cartaoHTML.style.pointerEvents = "auto"
+    for(const b of botoesVerificar){
+        b.style.pointerEvents = "auto"
+    }
     cartaoAtual = avancarIterator()
 
     adicionarCartao("pergunta")
